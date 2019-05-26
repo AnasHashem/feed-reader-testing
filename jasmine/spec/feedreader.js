@@ -57,9 +57,9 @@ $(function() {
             loadFeed(0, done);
         });
 
-        it('are there', function(done) {
-            expect(document.querySelector('.feed .entry')).toBeDefined();
-            done();
+        it('are there', function() {
+            let feed = document.getElementsByClassName('feed')[0];
+            expect(feed.getElementsByClassName('entry').length).toBeGreaterThan(0);
         });
     });
         
@@ -74,10 +74,9 @@ $(function() {
             });
         });
 
-        it('content changes', function(done) {
+        it('content changes', function() {
             //feed should've been change by now ..
             expect(document.querySelector('.feed').innerHTML).not.toBe(feed);
-            done();
         });
     });
 }());
